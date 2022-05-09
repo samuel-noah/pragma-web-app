@@ -37,7 +37,7 @@ const SignUp = () => {
                 <input type="password" placeholder="Password" ref={passwordRef}/>
                 <lable>Username</lable>
                 <input type="text" placeholder="Username" ref={usernameRef}/>
-                <button disabled ={loading}className='SignUp-button' type="Submit">Sign Up</button>
+                <button disabled ={loading} className='SignUp-button' type="Submit">Sign Up</button>
             </form>
             <div className="to-log-in">
                 <p>Already have an account?</p>

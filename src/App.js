@@ -10,6 +10,7 @@ import Navbar from './Navbar';
 import SignUp from './SignUp';
 import Timeline from './Timeline';
 import Login from "./Login";
+import PrivateRoute from "./PrivateRoute";
 
 
 function App() {
@@ -25,9 +26,9 @@ function App() {
         <Routes>
           <Route exact path="sign-up" element={<SignUp/>}/>
         </Routes>
-        <Routes>
+        <PrivateRoute>
           <Route exact path = "timeline" element={<Timeline/>}/>
-        </Routes>
+        </PrivateRoute>
         <Routes>
           <Route exact path = "login" element={<Login/>}/>
         </Routes>
