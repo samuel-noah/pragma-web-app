@@ -1,7 +1,8 @@
-import {Link} from 'react-router-dom'
-import { useRef,useState, useHistory } from 'react';
+import {Link, useNavigate} from 'react-router-dom'
+import { useRef,useState } from 'react';
 import { useAuth } from './Auth';
 import './SignUp';
+import UserProfile from './UserProfile';
 
 const Login = () => {
     const emailRef = useRef();
@@ -9,7 +10,7 @@ const Login = () => {
     const {logIn} = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
-    const history = useHistory()
+    const navigate = useNavigate()
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -18,7 +19,7 @@ const Login = () => {
             setError('')
             setLoading(true)
             await logIn(emailRef.current.value, passwordRef.current.value)
-            history.push('/')
+            navigate('/user-profile')
         }catch(err){
             setError('Failed to Login')
             console.log(err.message)
@@ -40,7 +41,7 @@ const Login = () => {
             </form>
             <div className="to-log-in">
                 <p>Need an account?</p>
-                <Link to="/">Sign Up</Link>
+                <Link to="/sign-up">Sign Up</Link>
             </div>
         </div>
             

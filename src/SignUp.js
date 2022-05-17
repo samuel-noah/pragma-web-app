@@ -1,7 +1,8 @@
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { useRef,useState } from 'react';
 import { useAuth } from './Auth';
 import './SignUp.css';
+
 
 const SignUp = () => {
     const emailRef = useRef();
@@ -10,6 +11,7 @@ const SignUp = () => {
     const {signUp} = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -18,6 +20,7 @@ const SignUp = () => {
             setError('')
             setLoading(true)
             await signUp(emailRef.current.value, passwordRef.current.value, usernameRef.current.value)
+            navigate('/user-profile')
         }catch(err){
             setError('Error signing up')
             console.log(err.message)
@@ -41,7 +44,7 @@ const SignUp = () => {
             </form>
             <div className="to-log-in">
                 <p>Already have an account?</p>
-                <Link to="/">Log In</Link>
+                <Link to="/login">Log In</Link>
             </div>
         </div>
             

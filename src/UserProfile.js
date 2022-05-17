@@ -1,18 +1,18 @@
 
-import React, {useState, useHistory} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState} from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from './Auth'
 
 export default function UserProfile() {
   const [error, setError] = useState('')
-  const [currentUser, Logout ] = useAuth()
-  const history = useHistory()
+  const [currentUser, logout ] = useAuth()
+  const navigate = useNavigate()
 
   async function handleLogout() {
     setError('')
     try{
-      await Logout()
-      history.push('/')
+      await logout()
+      navigate('/')
     }catch(err){
       setError('Failed to Logout',err.message)
     }
@@ -22,10 +22,10 @@ export default function UserProfile() {
         User Profile
         <div className='userHeader'></div>
         {error&& <p>{error}</p>}
-        <strong>Email:</strong> {currentUser.email}
-        <div className='user-content'></div>
-        <button variant="link" onClick={handleLogout}>Logout</button>
-        <Link to='update-profile'>Update Profile</Link>
+          <strong>Email:</strong> {currentUser.email}
+          <div className='user-content'></div>
+          <button variant="link" onClick={handleLogout}>Logout</button>
+          <Link to='update-profile'>Update Profile</Link>
     </div>
   )
 }
