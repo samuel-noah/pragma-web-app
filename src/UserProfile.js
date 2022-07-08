@@ -2,10 +2,11 @@
 import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from './Auth'
+import './UserProfile.css'
 
 export default function UserProfile() {
   const [error, setError] = useState('')
-  const [currentUser, logout ] = useAuth()
+  const {currentUser , logout} = useAuth()
   const navigate = useNavigate()
 
   async function handleLogout() {
@@ -19,13 +20,13 @@ export default function UserProfile() {
   } 
   return (
     <div className='user-profile'>
-        User Profile
+        <h1>User Profile</h1>
         <div className='userHeader'></div>
         {error&& <p>{error}</p>}
-          <strong>Email:</strong> {currentUser.email}
+          <strong>Email:</strong> {currentUser.email}    
           <div className='user-content'></div>
           <button variant="link" onClick={handleLogout}>Logout</button>
-          <Link to='update-profile'>Update Profile</Link>
+        <Link to='update-profile'>Update Profile</Link>
     </div>
   )
 }

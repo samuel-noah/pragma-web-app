@@ -1,0 +1,15 @@
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.user-profile h1 {
+    display: block;
+    font-size: 30px;
+    margin: auto;
+
+}

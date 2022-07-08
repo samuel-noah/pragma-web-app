@@ -16,22 +16,26 @@ import UserProfile from "./UserProfile";
 
 function App() {
   return (
-    <AuthProvider>
     <div className="App">
       <Router>
       <Navbar></Navbar>
       <div className="content">
+      <AuthProvider>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route exact path="sign-up" element={<SignUp/>}/>
           <Route exact path = "login" element={<Login/>}/>
-          <Route exact path = "user-profile" element={<UserProfile/>}/>
+          <Route exact path = "user-profile" element={
+            <PrivateRoute>
+              <UserProfile/>
+            </PrivateRoute>
+          }/>
           <Route exact path = "timeline" element={<Timeline/>}/>
         </Routes>
+      </AuthProvider>
     </div>
       </Router>
   </div>
-  </AuthProvider>
 
   );
 }

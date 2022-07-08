@@ -37,7 +37,7 @@ const Login = () => {
                 <input type="email" placeholder="Email" ref={emailRef}/>
                 <lable>Password</lable>
                 <input type="password" placeholder="Password" ref={passwordRef}/>
-                <button disabled ={loading}className='logIn-button' type="Submit">Sign Up</button>
+                <button disabled ={loading}className='logIn-button' type="Submit">Login</button>
             </form>
             <div className="to-log-in">
                 <p>Need an account?</p>
