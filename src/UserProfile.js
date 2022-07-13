@@ -21,8 +21,8 @@ export default function UserProfile() {
   return (
     <div className='user-profile'>
         <h1>User Profile</h1>
-        <div className='userHeader'></div>
-        {error&& <p>{error}</p>}
+          <div className='userHeader'></div>
+          {error&& <p>{error}</p>}
           <strong>Email:</strong> {currentUser.email}    
           <div className='user-content'></div>
           <button variant="link" onClick={handleLogout}>Logout</button>
