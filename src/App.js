@@ -12,6 +12,7 @@ import Timeline from './Timeline';
 import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
 import UserProfile from "./UserProfile";
+import Addpost from "./Addpost";
 
 
 function App() {
